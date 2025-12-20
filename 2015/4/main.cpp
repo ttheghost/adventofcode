@@ -9,19 +9,25 @@
 
 int main() {
   std::string input = "yzbqklnj";
-  bool answered = false;
+  bool answered_5 = false;
+  bool answered_6 = false;
   for (long long i = 0; i < std::numeric_limits<long long>::max(); i++) {
     std::string current_input = input + std::to_string(i);
     std::string hash = MD5::hash(current_input);
     if (hash.starts_with("00000")) {
-      if (hash.starts_with("000000")) {
+      if (hash.starts_with("000000") && !answered_6) {
         std::cout << "The answer where the hash starts with 6 zeroes is " << i << " hash: " << hash << "\n";
-        break;
+        answered_6 = true;
       }
-      if (!answered) {
+      if (!answered_5) {
         std::cout << "The answer where the hash starts with 5 zeroes is " << i << " hash: " << hash << "\n";
-        answered = true;
+        answered_5 = true;
       }
+      if (answered_5 && answered_6)
+      {
+        /* code */
+      }
+      
     }
   }
 }
