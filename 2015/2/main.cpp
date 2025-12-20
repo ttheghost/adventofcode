@@ -37,7 +37,7 @@ int main() {
     min_area = std::min(areas[0], std::min(areas[1], areas[2]));
     total_area += 2 * areas[0] + 2 * areas[1] + 2 * areas[2] + min_area;
 
-    unsigned int sorted_dim[2] = {0xffff, 0xffff};
+    unsigned int sorted_dim[2] = {0xffffffff, 0xffffffff};
     for (short i = 0; i < 3; i++) {
       if (dim[i] < sorted_dim[0]) {
         sorted_dim[1] = sorted_dim[0];
@@ -47,9 +47,9 @@ int main() {
       }
     }
 
-    std::cout << dim[0] << ":" << dim[1] << ":" << dim[2] << "\n"
-              << sorted_dim[0] << ":" << sorted_dim[1] << "\n"
-              << areas[0] << ":" << areas[1] << ":" << areas[2] << "\n";
+    //std::cout << dim[0] << ":" << dim[1] << ":" << dim[2] << "\n"
+    //          << sorted_dim[0] << ":" << sorted_dim[1] << "\n"
+    //          << areas[0] << ":" << areas[1] << ":" << areas[2] << "\n";
     total_ribbon += (sorted_dim[0] + sorted_dim[1])*2 + (dim[0] * dim[1] * dim[2]);
   }
   std::cout << "The total area is: " << total_area << "\n";
