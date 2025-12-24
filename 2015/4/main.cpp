@@ -16,18 +16,18 @@ int main() {
     std::string hash = MD5::hash(current_input);
     if (hash.starts_with("00000")) {
       if (hash.starts_with("000000") && !answered_6) {
-        std::cout << "The answer where the hash starts with 6 zeroes is " << i << " hash: " << hash << "\n";
+        std::cout << "The answer where the hash starts with 6 zeroes is " << i
+                  << " hash: " << hash << "\n";
         answered_6 = true;
       }
       if (!answered_5) {
-        std::cout << "The answer where the hash starts with 5 zeroes is " << i << " hash: " << hash << "\n";
+        std::cout << "The answer where the hash starts with 5 zeroes is " << i
+                  << " hash: " << hash << "\n";
         answered_5 = true;
       }
-      if (answered_5 && answered_6)
-      {
-        /* code */
+      if (answered_5 && answered_6) {
+        break;
       }
-      
     }
   }
 }
